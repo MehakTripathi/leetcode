@@ -9,6 +9,11 @@ class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
+        
+        return max(self.maxDepth(root.left), self.maxDepth(root.right)) +1
+
+        '''if not root:
+            return 0
         q=deque([root])
         count=0
         while q:
@@ -20,4 +25,4 @@ class Solution:
                 if node.right:
                     q.append(node.right)
             count+=1
-        return count
+        return count'''
