@@ -16,9 +16,10 @@ class Solution(object):
             fast = fast.next.next
         
         if prev:
-            prev.next = slow.next  # Remove middle node
+            prev.next = slow.next 
         
         return head
+        
         """
         :type head: Optional[ListNode]
         :rtype: Optional[ListNode]
