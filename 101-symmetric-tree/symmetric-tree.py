@@ -8,14 +8,20 @@ class Solution(object):
     def isSymmetric(self, root):
         if not root:
             return True
-        return self.mirrorimg(root.left, root.right)
 
-    def mirrorimg(self, left, right):
-        if not left and not right:
-            return True
-        if not left or not right:
-            return False
-        return left.val == right.val and self.mirrorimg(left.left, right.right) and self.mirrorimg(left.right, right.left)
+        def mirror(root1,root2):
+            if not root1 and not root2:
+                return True 
+            if not root1 and root2:
+                return False
+            if root1 and not root2:
+                return False
+            if root1.val== root2.val and mirror(root1.left, root2.right) and mirror(root1.right, root2.left):
+                return True
+            return False    
+        return mirror(root.left, root.right)
+
+       
         """
         :type root: Optional[TreeNode]
         :rtype: bool
