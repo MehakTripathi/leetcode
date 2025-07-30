@@ -1,18 +1,26 @@
-class Solution(object):
-    def isPalindrome(self, s):
-        n= len(s)
-        s1=""
-        s2=""
-        for i in range(n):
-            if (s[i].isalnum()==True):
-                s1+=s[i]
-        for i in range(n-1,-1,-1):
-            if (s[i].isalnum()==True):
-                s2+=s[i]
-        s1=s1.lower()
-        s2=s2.lower()
-        if s1==s2:
-            return True
-        else:
-            return False
-               
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        l, r = 0, len(s) - 1
+        while l < r:
+            while l < r and not s[l].isalnum():
+                l += 1
+            while l < r and not s[r].isalnum():
+                r -= 1
+
+            if s[l].lower() != s[r].lower():
+                return False
+            l += 1
+            r -= 1
+            
+        return True
+                
+
+        '''for i in range(n):
+            for j in range(n-1,-1,-1):
+                if a[i] == a[j]:
+                    return True
+                    i+=1
+                    j-=1
+                else:
+                    return False'''
+        
