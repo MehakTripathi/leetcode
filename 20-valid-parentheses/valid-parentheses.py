@@ -1,8 +1,9 @@
-class Solution(object):
-    def isValid(self, s):
-        stack= []
-        Mymap= {')':'(', ']':'[', '}': '{'}
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack =[]
+        Mymap= {')':'(', '}':'{', ']':'['}
 
+        
         for i in s:
             if i in Mymap.values():
                 stack.append(i)
@@ -11,10 +12,5 @@ class Solution(object):
                     return False
                 stack.pop()
         return len(stack) ==0
-       
 
-        """
-        :type s: str
-        :rtype: bool
-        """
         
