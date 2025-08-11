@@ -3,8 +3,29 @@ from typing import List
 
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
+        m,n =len(grid), len(grid[0])
+        def dfs(i,j, visited):
+            visited[i][j]= 1
+            dir= [(1,0), (0,1), (-1, 0), (0,-1)]
+            for nr, nc in dir:
+                row, col = nr+i, nc+j
+                if 0 <= row < m and 0 <= col < n and grid[row][col] == "1" and visited[row][col] == 0:
+                    dfs(row, col, visited)
 
-        if not grid:
+        island=0
+        visited= [[0]*n for _ in range(m)]
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] =="1" and visited[i][j]==0:
+                    dfs(i,j,visited)
+                    island +=1
+
+        return island
+
+
+
+
+        '''if not grid:
             return 0
 
         m= len(grid)
@@ -31,6 +52,7 @@ class Solution:
                 if grid[r][c] =="1" and (r,c) not in visit:
                     bfs(r,c)
                     islands +=1
-        return islands
+        return islands'''
+
 
         
