@@ -5,6 +5,9 @@ class Solution:
         for i in range(1, n):
             if nums[i] < nums[i-1]:
                 nums= nums[i:] + nums[:i]
-                return n-i if nums== sorted(nums) else -1
+                if nums == sorted(nums):
+                    return n-i
+                else:
+                    return -1
 
         return 0
