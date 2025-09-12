@@ -1,6 +1,6 @@
 class Solution:
     def sortVowels(self, s: str) -> str:
-        t= list(s)
+        '''t= list(s)
         l1=[]
 
         for i in t:
@@ -16,4 +16,15 @@ class Solution:
             if t[j] in "AEIOUaeiou":
                 t[j] = l1[count]
                 count +=1
-        return ''.join(t)
+        return ''.join(t)'''
+
+        vset= set("AEIOUaeiou")
+        v= [i for i in s if i in vset]
+        v.sort()
+        res=[]
+        l1= iter(v)
+
+        for i in s:
+            res.append(next(l1) if i in vset else i)
+
+        return ''.join(res)
