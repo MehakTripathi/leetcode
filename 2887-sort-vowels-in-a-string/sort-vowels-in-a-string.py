@@ -9,7 +9,7 @@ class Solution:
 
         if l1 ==[]:
             return s
-
+                                          [***BRUTE FORCE***]
         l1.sort()
         count=0
         for j in range(len(s)):
@@ -21,7 +21,7 @@ class Solution:
         vset= set("AEIOUaeiou")
         v= [i for i in s if i in vset]
         v.sort()
-        res=[]
+        res=[]                                #OPTIMIZED SOL.N      
         l1= iter(v)
 
         for i in s:
